@@ -1,0 +1,48 @@
+namespace org.honestchain
+
+participant user identified by userId {
+  o String userId
+  o String datasetId
+  o TaskList[] task_list 
+  //o String reputation default = '10' 
+}
+asset TaskList identified by task_id { 
+  o String task_id 
+  o String cs optional
+  o String dr optional
+  o String decision default = "approved"
+  o String risk_level default = "low"
+  o Integer reputation default = 10 
+  //o String avg
+}   
+//asset SampleAsset identified by assetId {
+//  o String assetId
+//  --> user owner
+  //o String value
+//}
+
+transaction SampleTransaction {
+  //--> SampleAsset asset
+  --> TaskList tasklist
+  //o String newValue
+  o String newDecision 
+  o String new_risk_level
+  o Integer new_reputation
+  
+}
+
+event SampleEvent {
+  //SampleAsset asset
+  --> TaskList tasklist
+  o String oldValue optional
+  o String newCS optional
+  o String newdr optional
+  o String newDecision
+  o String new_risk_level
+  o Integer new_reputation
+  //o String newavg
+}
+
+
+
+
