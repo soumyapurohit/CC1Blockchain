@@ -3,7 +3,7 @@
     "composer": "^0.20.9"
   },
   "name": "honest-chain",
-  "version": "0.0.14",
+  "version": "0.0.23",
   "description": "Health Informatin Sharing ",
   "scripts": {
     "prepublish": "mkdirp ./dist && composer archive create --sourceType dir --sourceName . -a ./dist/honest-chain.bna",

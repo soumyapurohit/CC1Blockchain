@@ -1,6 +1,6 @@
 rule EverybodyCanReadEverything {
     description: "Allow all participants read access to all resources"
-    participant: "org.honestchain.user"
+    participant: "org.honestchain.User"
     operation: READ
     resource: "org.honestchain.*"
     action: ALLOW
@@ -8,7 +8,7 @@ rule EverybodyCanReadEverything {
 
 rule EverybodyCanSubmitTransactions {
     description: "Allow all participants to submit transactions"
-    participant: "org.honestchain.user"
+    participant: "org.honestchain.User"
     operation: CREATE
     resource: "org.honestchain.SampleTransaction"
     action: ALLOW
@@ -16,7 +16,7 @@ rule EverybodyCanSubmitTransactions {
 
 rule OwnerHasFullAccessToTheirAssets {
     description: "Allow all participants full access to their assets"
-    participant(p): "org.honestchain.user"
+    participant(p): "org.honestchain.User"
     operation: ALL
     resource(r): "org.honestchain.TaskList"
     condition: (r.owner.getIdentifier() === p.getIdentifier())
@@ -46,5 +46,6 @@ rule NetworkAdminSystem {
     resource: "org.hyperledger.composer.system.**"
     action: ALLOW
 }
+
 
 
